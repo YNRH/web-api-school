@@ -4,7 +4,8 @@ using web_api_school.Context;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("Connection");
+var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ??
+    builder.Configuration.GetConnectionString("Connection");
 
 //Registra servicio para la conexion
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));

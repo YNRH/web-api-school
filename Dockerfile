@@ -5,6 +5,8 @@ USER app
 WORKDIR /app
 EXPOSE 8080
 
+ENV DB_CONNECTION_STRING="Server=db-school.cjh3izddzqpw.us-east-1.rds.amazonaws.com,1433;Database=School;User Id=admin;Password=5Aws.aws5;TrustServerCertificate=True;"
+
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
